@@ -1,0 +1,181 @@
+@import "fonts";
+
+.loading-indicator {
+  width: 46px;
+
+
+
+}
+
+.result {
+  width: 20px;
+  opacity: 0;
+  animation: fadein 1s forwards;
+}
+
+.warning {
+  background-color: #ff6463;
+  color: #ffffff;
+  font-size: 14px;
+
+  &.tooltip {
+    i::after {
+      background-color: #ff6463;
+    }
+  }
+}
+
+.tickbox {
+  width: 37px;
+  height: 14px;
+  border-radius: 666px;
+  background-color: transparentize(#0b0412, 1-0.2);
+  position: relative;
+  transition: all 0.3s;
+
+  .lds-ring {
+    opacity: 0;
+    animation-delay: 0.8s;
+    animation: fadein 0.3s forwards;
+    position: absolute;
+    left: 50%;
+    z-index: 100;
+    margin-top: -3px;
+  }
+
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: -3px;
+    height: 20px;
+    width: 20px;
+    border-radius: 666px;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.22);
+    transition: all 0.3s;
+  }
+
+  &.active {
+    background-color: #8bd5ab;
+    &:after {
+      left: 50%;
+      background-color: #0f874a;
+    }
+  }
+
+  &.loading {
+    &:after {
+      left: 50%;
+      background-color: #0f874a;
+    }
+  }
+}
+
+.app-error {
+  display: flex;
+  color: #8c0000;
+  background-color: #ffdddd;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  height: 27px;
+
+  &-container {
+    position: fixed;
+    top: 0;
+    z-index: 666;
+    width: 100%;
+  }
+
+}
+
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: 2px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.pulser {
+
+  height: 315px;
+  object-fit: contain;
+
+  @media screen and (max-width: 1600px) {
+    width: 414px;
+    height: 250px;
+  }
+
+  circle {
+    animation: pulse 4s infinite;
+    transform-origin: center;
+    &:nth-child(1) { animation-delay: 0.2s; }
+    &:nth-child(2) { animation-delay: 0.4s; }
+    &:nth-child(3) { animation-delay: 0.6s; }
+    &:nth-child(6) { animation-delay: 0.8s; }
+    &:nth-child(7) { animation-delay: 1s; }
+  }
+}
+
+span.ticker {
+  & > span {
+    display: inline-block;
+    width: 24px;
+    text-align: right;
+    font-family: $titleFont;
+    transition: all 0.2s;
+    color: transparentize(#ffffff, 0.5);
+
+    &.primary {
+      color: #ffffff;
+    }
+
+    @media screen and (max-width: 1600px) {
+      font-size: 34px;
+      width: 20.5px;
+    }
+
+    &.in {
+      opacity: 0;
+      animation: dropin 0.3s forwards;
+    }
+
+    &.dot {
+      width: 10px;
+    }
+    &.one {
+      width: 12px;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.even {
+  display: flex;
+  & > * {
+    flex: 1;
+  }
+}
+
+
+.split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & > * {
+  }
+}
+
+.ln {
+  background-color: #979797;
+  display: block;
+  height: 2px;
+
+  &.light {
+    background-color: transparentize(#0b0412, 1-0.2);
+  }
+}
+
+#root {
+  display: flex;
+  min-height: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1266px;
+  transition: all 0.3s;
+
+  @media screen and (max-width: 1600px) {
+    max-width: 1088px;
+  }
+
+  @media screen and (max-width: 1365px) {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+}
+
+.title-bar {
+  height: 117px;
+
+  @media screen and (max-width: 1600px) {
+    height: 86px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 1.4px;
+  }
+}
